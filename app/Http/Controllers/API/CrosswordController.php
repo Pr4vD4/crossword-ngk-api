@@ -76,9 +76,9 @@ class CrosswordController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
-        //
+        return response()->json(CrosswordResource::collection(Crossword::all()));
     }
 
     /**
@@ -92,7 +92,7 @@ class CrosswordController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
 
         $validator = Validator::make($request->all(), [

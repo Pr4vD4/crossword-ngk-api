@@ -29,4 +29,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
    Route::post('/crossword', [CrosswordController::class, 'store']);
 });
 
+Route::get('/crossword/', [CrosswordController::class, 'index']);
 Route::get('/crossword/{id}', [CrosswordController::class, 'show']);
