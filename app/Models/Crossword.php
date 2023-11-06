@@ -9,9 +9,9 @@ class Crossword extends Model
 {
     use HasFactory;
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsToMany(Crossword::class);
+        return $this->belongsTo(User::class);
     }
 
     protected $table = 'crosswords';

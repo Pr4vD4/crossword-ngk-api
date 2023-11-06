@@ -18,7 +18,6 @@ class CrosswordController extends Controller
         $y_size = count($crossword);
         $x_size = count($crossword[0]);
 
-
         # Word coordinates
         $x = rand(0, $x_size - 1);
         $y = rand(0, $y_size - count($word));
@@ -39,7 +38,6 @@ class CrosswordController extends Controller
         for ($i = 0; $i < count($word); $i++) {
             $crossword[$y + $i][$x] = [$word[$i], 1];
         }
-
 
         return [$crossword, $word];
     }
@@ -64,7 +62,6 @@ class CrosswordController extends Controller
                 } else {
                     return $this->createWordByVert($crossword, $word, $rec + 1);
                 }
-
             }
         }
 
@@ -72,7 +69,6 @@ class CrosswordController extends Controller
         for ($i = 0; $i < count($word); $i++) {
             $crossword[$y][$x + $i] = [$word[$i], 1];
         }
-
 
         return [$crossword, $word];
     }
@@ -137,7 +133,7 @@ class CrosswordController extends Controller
         for ($i = 0; $i < count($request->words); $i++) {
 
             if (rand(0, 1)) {
-                $result = $this->createWordByVert($crossword, mb_str_split($request->words[$i]));
+                $result = $this->createWordByVert($crossword, mb_str_split(strtolower($request->words[$i])));
 
                 $crossword = $result[0];
                 if ($result[1]) {
@@ -145,7 +141,7 @@ class CrosswordController extends Controller
                     $words_list[] = $word;
                 }
             } else {
-                $result = $this->createWordByHor($crossword, mb_str_split($request->words[$i]));
+                $result = $this->createWordByHor($crossword, mb_str_split(strtolower($request->words[$i])));
 
                 $crossword = $result[0];
 
@@ -153,8 +149,6 @@ class CrosswordController extends Controller
                     $word = implode($result[1]);
                     $words_list[] = $word;
                 }
-
-
             }
         }
 
@@ -181,7 +175,7 @@ class CrosswordController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json($validator->errors(), 404);
         }
 
         $crossword = Crossword::query()->where('id', $id)->first();

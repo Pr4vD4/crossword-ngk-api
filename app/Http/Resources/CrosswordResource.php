@@ -16,7 +16,7 @@ class CrosswordResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'user_id' => $this->user_id,
+            'user_id' => $this->user,
             'words' => $this->words,
             'crossword' => $this->crossword,
             'size' => [
