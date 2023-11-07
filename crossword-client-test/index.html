@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="main">
+    <div id="crossword">
+
+    </div>
+
+</div>
+
+<script src="main.js"></script>
+
+<style>
+
+    #main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: flex;
+        height: 50px;
+
+    }
+
+    .row-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 50px;
+        border: solid 1px #4b4b4b;
+        font-size: 32px;
+        cursor: pointer;
+
+    }
+
+    #crossword {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        max-height: 1000px;
+        max-width: 1000px;
+        border: solid 1px #4b4b4b;
+    }
+
+</style>
+
+
+</body>
+</html>

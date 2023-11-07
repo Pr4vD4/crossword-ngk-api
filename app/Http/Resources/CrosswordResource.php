@@ -19,10 +19,7 @@ class CrosswordResource extends JsonResource
             'user_id' => $this->user,
             'words' => $this->words,
             'crossword' => $this->crossword,
-            'size' => [
-                'x' => $this->x,
-                'y' => $this->y,
-            ],
+            'size' => $this->size,
         ];
     }
 }
